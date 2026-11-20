@@ -6,11 +6,17 @@ name: note-summarizer-eval
 
 on:
   workflow_dispatch:
+    inputs:
+      from_run:
+        description: "Only merge: take the shard files from this earlier run id"
+        required: false
+        default: ""
   push:
     paths: ["projects/healthcare/clinical-note-summarizer/run-request.txt"]
 
 permissions:
   contents: write
+  actions: read
 
 env:
   PYTHONPATH: ${{ github.workspace }}/src
@@ -21,6 +27,7 @@ env:
 
 jobs:
   answer:
+    if: ${{ !inputs.from_run }}
     runs-on: ubuntu-latest
     timeout-minutes: 340
     strategy:
@@ -60,7 +67,7 @@ jobs:
         with: { python-version: "3.12", cache: pip }
       - run: pip install -e .
       - uses: actions/download-artifact@v4
-        with: { path: shards, pattern: "sum-shard-*", merge-multiple: true }
+        with: { path: shards, pattern: "sum-shard-*", merge-multiple: true, run-id: "${{ inputs.from_run || github.run_id }}", github-token: "${{ github.token }}" }
       - name: Merge shards and summarize
         working-directory: projects/healthcare/clinical-note-summarizer
         run: |
