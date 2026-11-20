@@ -1,0 +1,11 @@
+{
+  "notes": 300,
+  "notes_with_identifiers": 166,
+  "identifiers_by_type": {
+    "NAME": 116,
+    "DATE": 281,
+    "PLACE": 80,
+    "PHONE": 1,
+    "AGE": 2
+  }
+}
