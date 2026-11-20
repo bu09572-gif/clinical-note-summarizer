@@ -53,7 +53,7 @@ From `results/summary.json`. Every summary is in `results/summaries.jsonl`.
     - generic "Medical Center" and "Memorial Hospital";
     - one real miss: a country named in a sentence my place rule doesn't cover.
 - **About 7% of summaries contain a number not in the note.** This is the error that matters most in clinical text, a wrong dose or value. Checking numbers is cheap and exact, so it should run on every summary.
-- **The 3B LLM judge is not usable.** It flagged at least one "unsupported" statement in 98% of summaries, 4.7 per summary on average. I checked the 861 statements it flagged against the note: **81% have at least 90% of their words in the note**, so most flags are wrong. A judge this small adds noise, not safety. The deterministic checks above are more useful, and a judge needs its own accuracy test before anyone relies on it.
+- **The 3B LLM judge is not usable.** Of the 233 judgments it returned in a readable format, 98% flagged at least one "unsupported" statement, 4.7 per summary on average. I checked the 861 statements it flagged against the note: **81% have at least 90% of their words in the note**, so most flags are wrong. A judge this small adds noise, not safety. The deterministic checks above are more useful, and a judge needs its own accuracy test before anyone relies on it.
 
 ## Limits
 
