@@ -1,0 +1,29 @@
+{
+  "notes": 300,
+  "notes_with_identifiers": 166,
+  "configs": {
+    "original": {
+      "summaries": 300,
+      "summaries_leaking_an_identifier": 36,
+      "leak_rate_on_notes_with_identifiers": 0.2169,
+      "summaries_with_unsupported_numbers": 0.08,
+      "keyword_coverage_mean": 0.6159,
+      "judge_parsed": 233,
+      "judge_found_no_unsupported_statement": 0.0172,
+      "median_words": 119.0,
+      "median_latency_s": 31.55
+    },
+    "deidentified": {
+      "summaries": 300,
+      "summaries_leaking_an_identifier": 6,
+      "leak_rate_on_notes_with_identifiers": 0.0361,
+      "summaries_with_unsupported_numbers": 0.0667,
+      "keyword_coverage_mean": 0.6424,
+      "judge_parsed": 229,
+      "judge_found_no_unsupported_statement": 0.0218,
+      "median_words": 124.0,
+      "median_latency_s": 21.65
+    }
+  },
+  "median_note_words": 445.0
+}
