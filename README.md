@@ -1,5 +1,7 @@
 # Clinical Note Summarizer with De-identification
 
+[![tests](https://github.com/bu09572-gif/clinical-note-summarizer/actions/workflows/tests.yml/badge.svg)](https://github.com/bu09572-gif/clinical-note-summarizer/actions/workflows/tests.yml)
+
 This project summarizes real clinical notes into the five sections a clinician wants (reason for visit, findings, assessment, plan, medications) with a free local model. It removes patient identifiers *before* the note reaches the model. Every summary is checked for leaked identifiers, invented numbers and coverage of the note's key terms. I also test whether an "LLM as judge" can be trusted to catch made-up statements. It can't, at this size.
 
 ## Data
@@ -59,7 +61,7 @@ From `results/summary.json`. Every summary is in `results/summaries.jsonl`.
 
 - The notes are public teaching transcriptions, not a hospital's EHR. Real notes have more identifiers and messier text.
 - With no reference summaries, I can measure leaks, numbers and coverage, but not overall clinical correctness. That needs clinician review.
-- The de-identifier is rule-based plus a general NER model. A production system would use a clinical de-identification model and measure recall on labelled data, as in the [PII redaction project](../../core/pii-redaction).
+- The de-identifier is rule-based plus a general NER model. A production system would use a clinical de-identification model and measure recall on labelled data, as in the [PII redaction project](https://github.com/bu09572-gif/ai-ml-portfolio/tree/main/projects/core/pii-redaction).
 
 ## Running it
 
@@ -69,3 +71,7 @@ python deid_sample.py          # de-identify the 300-note sample
 pytest -q test_summarizer.py
 # summaries: edit run-request.txt and push; GitHub Actions runs the models and commits results/
 ```
+
+---
+
+Part of my [AI/ML and data engineering portfolio](https://github.com/bu09572-gif/ai-ml-portfolio), where every project uses real public data and free, open-source tools.

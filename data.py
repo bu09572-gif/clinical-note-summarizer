@@ -14,7 +14,7 @@ from pathlib import Path
 import pandas as pd
 import requests
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[0]
 RAW = Path(os.environ.get("PUBLIC_V2_DIR", ROOT / "data" / "raw" / "public_v2"))
 URL = "https://github.com/bu09572-gif/ai-ml-portfolio/releases/download/data-v2/mtsamples__train__0.parquet"
 SHA256 = "89d8e5eabe6769ea530b0c07da50f27c7a1605b836570e878cef5b956ca9ed80"
